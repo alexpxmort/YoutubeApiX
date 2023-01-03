@@ -1,5 +1,6 @@
 const youtubesearchapi = require("youtube-search-api");
 const express = require('express')
+const cors = require('cors');
 
 
 const findVideosByQuery = (arr,query = 'Padre Mario Sartori') => {
@@ -49,6 +50,7 @@ const homilia = 'homilia'
 
 const app = express()
 
+app.use(cors())
 
 app.get('/youtube/:search',async (req,res) => {
    
