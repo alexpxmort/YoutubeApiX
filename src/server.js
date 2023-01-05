@@ -33,13 +33,14 @@ const arrDays = [
         number:5
     },
     {
+        name:'Sábado',
+        number:6
+    },
+    {
         name:'Domingo',
         number:0
     },
-    {
-        name:'Sabado',
-        number:0
-    }
+   
 ]
 
 let videos = [];
