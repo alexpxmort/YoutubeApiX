@@ -2,6 +2,22 @@ const youtubesearchapi = require("youtube-search-api");
 const express = require('express')
 const cors = require('cors');
 
+const {document} = require(`../src/swagger/swagger`)
+
+const swaggerUi = require('swagger-ui-express')
+
+let options = {
+    swaggerOptions: {
+        validatorUrl: null
+    },
+    customCssUrl: '/public/css/swagger-ui.css'
+};
+
+
+document.host = `localhost:5000`
+document.basePath = `/api/v1/`
+
+
 
 const findVideosByQuery = (arr,query = 'Padre Mario Sartori') => {
     return arr.filter((val) => val.channelTitle?.includes(query) )
@@ -48,10 +64,22 @@ let videos = [];
 const padreMario = 'homilia diaria padre mario'
 const homilia = 'homilia'
 
+const path = require('path')
 
 const app = express()
 
 app.use(cors())
+
+app.use(express.static(__dirname + '/public/css'));
+
+
+app.get('/public/css/swagger-ui.css',function(req,res) {
+    res.sendFile(path.join(__dirname+
+    '/public/css/swagger-ui.css'));})
+
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(document, options));
+
 
 app.get('/youtube/:search',async (req,res) => {
    
