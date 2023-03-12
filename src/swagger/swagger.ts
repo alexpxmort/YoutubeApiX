@@ -37,7 +37,7 @@
             {
               "in": "path",
               "name": "search",
-              "description": "",
+              "description": "Seach Field",
               "required": false
             }
           ],

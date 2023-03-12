@@ -17,7 +17,7 @@ let options = {
     customCssUrl: '/public/css/swagger-ui.css'
 };
 
-document.host = `${config.server.host}`
+document.host = process.env.NODE_ENV === 'development' ? `${config.server.host}:${config.server.port}`: `${config.server.host}`
 document.basePath = `/`
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(document, options));
