@@ -9,7 +9,8 @@
     "dev-ts": "tsx watch src/server.ts",
     "start": "node dist/server.js",
     "test": "mocha --watch  --require ts-node/register -r tsconfig-paths/register ./test/**/*.spec.ts",
-    "test:cov": "nyc  yarn test "
+    "test:cov": "nyc --check-coverage --lines 80 --per-file yarn test ",
+    "test:coveralls":"npm run test:cov && coveralls < report/coverage/lcov-info"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -33,6 +34,7 @@
     "@types/supertest": "^2.0.12",
     "@types/swagger-ui-express": "^4.1.3",
     "chai": "^4.3.7",
+    "coveralls": "^3.1.1",
     "nyc": "^15.1.0",
     "sinon": "^15.0.1",
     "supertest": "^6.3.3",
