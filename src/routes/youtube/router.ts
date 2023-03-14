@@ -27,7 +27,7 @@ router.get('/:search',async (req:Request,res:Response) => {
          
      const dayVideo = getDaysWeek().find((day) => day.number === getCurrentDate().getDay());
  
-conse.log(getCurrentDate().getDay())
+console.log(getCurrentDate().getDay())
 console.log(videos)
      if(dayVideo!=undefined){
         const videoDiario = videos.find((video) => video.title.includes(dayVideo.name))
