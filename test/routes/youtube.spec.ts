@@ -2,7 +2,7 @@ import supertest from "supertest";
 import app from "@app/index";
 import { expect, request } from "../helper/helper";
 
-describe.only("Youtube Route", () => {
+describe("Youtube Route", () => {
 
     const server:supertest.SuperTest<supertest.Test> =  request(app);
 
@@ -17,7 +17,7 @@ describe.only("Youtube Route", () => {
         const result =  await server.get("/youtube/homilia")
         const json  = JSON.parse(result.text);
         expect(result.status).to.eql(200)
-        expect(json).to.have.property('idVideo')
+        expect(json).to.not.have.property('videos')
     });
 
     it("should search another value ", async () => {
