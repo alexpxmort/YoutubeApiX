@@ -1,6 +1,6 @@
 import supertest from "supertest";
 import app from "@app/index";
-import { request } from "./helper/helper";
+import { request } from "../helper/helper";
 
 describe("App", () => {
 

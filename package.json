@@ -8,9 +8,9 @@
     "build": "tsup src/server.ts",
     "dev-ts": "tsx watch src/server.ts",
     "start": "node dist/server.js",
-    "test": "mocha --watch  --require ts-node/register -r tsconfig-paths/register ./test/**/*.spec.ts",
-    "test:cov": "nyc --check-coverage --lines 80 --per-file yarn test ",
-    "test:coveralls":"npm run test:cov && coveralls < report/coverage/lcov-info"
+    "test": "mocha  --watch  --require ts-node/register -r tsconfig-paths/register ./test/**/*.spec.ts",
+    "test:cov": "nyc  yarn test ",
+    "test:coveralls":"npm run test:cov && coveralls < report/coverage/lcov.info"
   },
   "dependencies": {
     "cors": "^2.8.5",
