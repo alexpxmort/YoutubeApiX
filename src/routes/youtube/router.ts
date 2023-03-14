@@ -35,7 +35,7 @@ console.log(videos)
         return res.json({idVideo:videoDiario?.id})
      }
 
-     res.json({})
+     res.json({idVideo:videos?.[0]?.id})
      
     }
 
