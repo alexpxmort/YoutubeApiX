@@ -8,7 +8,7 @@
     "build": "tsup src/server.ts",
     "dev-ts": "tsx watch src/server.ts",
     "start": "node dist/server.js",
-    "test": "mocha   --require ts-node/register -r tsconfig-paths/register ./test/**/*.spec.ts",
+    "test": "mocha   --require ts-node/register -r tsconfig-paths/register ./test/**/*.spec.ts --exit",
     "test:cov": "nyc  yarn test ",
     "test:coveralls":"npm run test:cov && coveralls < report/coverage/lcov.info"
   },
